@@ -1,0 +1,324 @@
+/* -------------------------
+   :root Variables
+------------------------- */
+:root {
+  --primary-color: #fadfdd;
+  --secondary-color: #464646;
+  --accent-color: #f9f9f9;
+  --background-color: #fff;
+  --font-family: 'Inter', sans-serif;
+  --border-radius: 6px;
+  --shadow: 0 4px 6px rgba(63, 62, 62, 0.1);
+  --transition: all 0.3s ease-in-out;
+}
+
+/* -------------------------
+   Reset / Base Styles
+------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: var(--transition);
+}
+a:hover {
+  color: darken(var(--primary-color), 10%);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+/* -------------------------
+   Layout
+------------------------- */
+#root, main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+/* -------------------------
+   Header
+------------------------- */
+header.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header.app-header nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: white;
+}
+header.app-header nav a:hover {
+  opacity: 0.9;
+}
+
+/* -------------------------
+   Footer
+------------------------- */
+footer.footer {
+  padding: 2rem;
+  background-color: var(--secondary-color);
+  color: #f0f0f0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* -------------------------
+   Floating Cart
+------------------------- */
+.floating-cart {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.floating-cart:hover {
+  transform: scale(1.05);
+}
+
+/* -------------------------
+   Buttons
+------------------------- */
+button.primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+}
+button.primary:hover {
+  opacity: 0.9;
+}
+
+button.secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-weight: 500;
+}
+button.secondary:hover {
+  opacity: 0.9;
+}
+
+/* -------------------------
+   Cards & Sections
+------------------------- */
+.card {
+  background-color: var(--accent-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.section-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* -------------------------
+   Forms
+------------------------- */
+input, select {
+  padding: 0.6rem 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid #ddd;
+  margin-bottom: 1rem;
+  width: 100%;
+  transition: var(--transition);
+}
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(255,111,97,0.2);
+}
+
+/* -------------------------
+   Grids
+------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* -------------------------
+   Hero Section
+------------------------- */
+.hero {
+  background: url('/src/assets/hero-bg.jpg') center/cover no-repeat;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* -------------------------
+   Responsive
+------------------------- */
+@media (max-width: 768px) {
+  header.app-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  header.app-header nav {
+    margin-top: 0.5rem;
+  }
+  .floating-cart {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.7rem 1.2rem;
+  }
+}
+
+/* src/styles/Home.css */
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+/* Hero Text */
+.hero-section .hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .hero-section h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-section p {
+    font-size: 1.5rem;
+  }
+}
+
+/* Search Section */
+.container .form-control {
+  border-radius: 50px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  transition: all 0.3s ease;
+}
+
+.container .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.25);
+  border-color: #ff6b35;
+  outline: none;
+}
+
+.container .btn-primary {
+  border-radius: 50px;
+  padding: 0.55rem 1.25rem;
+  background: linear-gradient(90deg, #ff6b35, #ffd4c4);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.container .btn-primary:hover {
+  background: linear-gradient(90deg, #ffd4c4, #ff6b35);
+}
+
+/* Recipe Grid Cards */
+.row.g-4 {
+  margin-top: 2rem;
+}
+
+.row.g-4 .col-lg-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.row.g-4 .col-lg-3 .card {
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.row.g-4 .col-lg-3 .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 15, 15, 0.15);
+}
